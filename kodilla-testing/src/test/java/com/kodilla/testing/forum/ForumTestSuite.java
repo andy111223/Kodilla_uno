@@ -49,9 +49,8 @@ class ForumTestSuite {
         //Given
         SimpleUser simpleUser = new SimpleUser("theForumUser", "John Smith");
 
-        String expectedResult = "theForumUser";
-
         //When
+        String expectedResult = "theForumUser";
         String result = simpleUser.getUsername();
 
         //Then

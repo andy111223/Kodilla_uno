@@ -33,12 +33,14 @@ public class CollectionTestSuite {
     void testOddNumbersExterminatorNormalList() {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+
         List<Integer> normalList = new ArrayList<>();
         List<Integer> expectedResultList = new ArrayList<>();
         normalList.add(1);
         normalList.add(2);
-        expectedResultList.add(4);
-        expectedResultList.add(6);
+
+        expectedResultList.add(2);
+
         //When
         List<Integer> resultList = oddNumbersExterminator.exterminate(normalList);
         //Then
