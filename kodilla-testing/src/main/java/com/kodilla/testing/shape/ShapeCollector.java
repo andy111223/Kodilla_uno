@@ -1,11 +1,14 @@
 package com.kodilla.testing.shape;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShapeCollector {
 
-    private Shape shape;
+    List<Shape> shapeCollection;
 
-    public ShapeCollector(Shape shape) {
-        this.shape = shape;
+    public ShapeCollector() {
+        shapeCollection = new ArrayList<>();
     }
 
     public void addFigure(Shape shape) {
@@ -17,13 +20,13 @@ public class ShapeCollector {
         return true;
     }
 
-    public Shape getFigure(int n) {
+    public String getFigure(int n) {
         //returning null means that the opration was successfull
         return null;
     }
 
-    public Shape showFigures() {
+    public List<Shape> showFigures() {
         //
-        return shape;
+        return shapeCollection;
     }
 }
