@@ -20,8 +20,8 @@ public class ShapeCollector {
         return true;
     }
 
-    public String getFigure(int n) {
-        //returning null means that the opration was successfull
+    public Shape getFigure(int n) {
+        //returning null means that the operation was successfull
         return null;
     }
 

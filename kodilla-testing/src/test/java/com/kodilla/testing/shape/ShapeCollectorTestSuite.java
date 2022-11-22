@@ -2,6 +2,8 @@ package com.kodilla.testing.shape;
 
 import org.junit.jupiter.api.*;
 
+import java.util.List;
+
 @DisplayName("TDD: Forum Test Suite")
 public class ShapeCollectorTestSuite {
 
@@ -27,14 +29,24 @@ public class ShapeCollectorTestSuite {
         @Test
         void testAddFigure() {
             //Given
+            ShapeCollector shapeCollector = new ShapeCollector();
+            Shape shape = new Circle();
             //When
+            shapeCollector.addFigure(shape);
             //Then
+            Assertions.assertEquals(1, shapeCollector.shapeCollection.size());
         }
         @Test
         void testRemoveFigure() {
             //Given
+            ShapeCollector shapeCollector = new ShapeCollector();
+            Shape shape = new Square();
+            shapeCollector.addFigure(shape);
             //When
+            boolean result = shapeCollector.removeFigure(shape);
             //Then
+            Assertions.assertTrue(result);
+            Assertions.assertEquals(0, shapeCollector.shapeCollection.size());
         }
     }
     @Nested
@@ -43,14 +55,30 @@ public class ShapeCollectorTestSuite {
         @Test
         void testGetFigure() {
             //Given
+            ShapeCollector shapeCollector = new ShapeCollector();
+            Shape shape = new Triangle();
+            shapeCollector.addFigure(shape);
             //When
+            ShapeCollector retrievedFigure = shapeCollector.getFigure(0);
             //Then
+            Assertions.assertEquals(shape, retrievedFigure);
         }
         @Test
         void testShowFigures() {
             //Given
+            ShapeCollector shapeCollector = new ShapeCollector();
+            Shape shape1 = new Circle();
+            shapeCollector.addFigure(shape1);
+            Shape shape2 = new Square();
+            shapeCollector.addFigure(shape2);
+            Shape shape3 = new Triangle();
+            shapeCollector.addFigure(shape3);
+            String listOfFigures = String.valueOf(shapeCollector.shapeCollection.toArray());
             //When
+            List<Shape> showFigures = shapeCollector.showFigures();
             //Then
+            Assertions.assertEquals(listOfFigures, showFigures);
+
         }
     }
 }
