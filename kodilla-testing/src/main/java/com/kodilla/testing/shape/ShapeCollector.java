@@ -20,7 +20,7 @@ public class ShapeCollector {
         return true;
     }
 
-    public Shape getFigure(int n) {
+    public ShapeCollector getFigure(int n) {
         //returning null means that the operation was successfull
         return null;
     }

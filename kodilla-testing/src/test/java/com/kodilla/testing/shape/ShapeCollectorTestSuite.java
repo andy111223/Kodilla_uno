@@ -20,7 +20,7 @@ public class ShapeCollectorTestSuite {
     @BeforeEach
     public void beforeEveryTest() {
         testCounter++;
-        System.out.println("Preparing to execture test #" + testCounter);
+        System.out.println("Preparing to exectute test #" + testCounter);
     }
     @Nested
     @DisplayName("Tests for adding and removing figures")
@@ -30,7 +30,7 @@ public class ShapeCollectorTestSuite {
         void testAddFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Shape shape = new Circle();
+            Shape shape = new Circle(25);
             //When
             shapeCollector.addFigure(shape);
             //Then
@@ -40,7 +40,7 @@ public class ShapeCollectorTestSuite {
         void testRemoveFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Shape shape = new Square();
+            Shape shape = new Square(25);
             shapeCollector.addFigure(shape);
             //When
             boolean result = shapeCollector.removeFigure(shape);
@@ -56,7 +56,7 @@ public class ShapeCollectorTestSuite {
         void testGetFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Shape shape = new Triangle();
+            Shape shape = new Triangle(30, 20);
             shapeCollector.addFigure(shape);
             //When
             ShapeCollector retrievedFigure = shapeCollector.getFigure(0);
@@ -67,11 +67,11 @@ public class ShapeCollectorTestSuite {
         void testShowFigures() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Shape shape1 = new Circle();
+            Shape shape1 = new Circle(25);
             shapeCollector.addFigure(shape1);
-            Shape shape2 = new Square();
+            Shape shape2 = new Square(25);
             shapeCollector.addFigure(shape2);
-            Shape shape3 = new Triangle();
+            Shape shape3 = new Triangle(30, 20);
             shapeCollector.addFigure(shape3);
             String listOfFigures = String.valueOf(shapeCollector.shapeCollection.toArray());
             //When
