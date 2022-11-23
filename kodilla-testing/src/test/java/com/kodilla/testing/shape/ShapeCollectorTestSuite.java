@@ -59,9 +59,31 @@ public class ShapeCollectorTestSuite {
             Shape shape = new Triangle(30, 20);
             shapeCollector.addFigure(shape);
             //When
-            ShapeCollector retrievedFigure = shapeCollector.getFigure(0);
+            Shape retrievedFigure = shapeCollector.getFigure(0);
             //Then
             Assertions.assertEquals(shape, retrievedFigure);
+        }
+        @Test
+        void testGetFigureNegativeIndex() {
+            //Given
+            ShapeCollector shapeCollector = new ShapeCollector();
+            Shape shape = new Triangle(30, 20);
+            shapeCollector.addFigure(shape);
+            //When
+            Shape retrievedFigure = shapeCollector.getFigure(-1);
+            //Then
+            Assertions.assertNull(retrievedFigure);
+        }
+        @Test
+        void testGetFigureNotExistingIndex() {
+            //Given
+            ShapeCollector shapeCollector = new ShapeCollector();
+            Shape shape = new Triangle(30, 20);
+            shapeCollector.addFigure(shape);
+            //When
+            Shape retrievedFigure = shapeCollector.getFigure(6);
+            //Then
+            Assertions.assertNull(retrievedFigure);
         }
         @Test
         void testShowFigures() {
@@ -73,12 +95,13 @@ public class ShapeCollectorTestSuite {
             shapeCollector.addFigure(shape2);
             Shape shape3 = new Triangle(30, 20);
             shapeCollector.addFigure(shape3);
-            String listOfFigures = String.valueOf(shapeCollector.shapeCollection.toArray());
+            String listOfFigures = shapeCollector.shapeCollection.toString();
             //When
-            List<Shape> showFigures = shapeCollector.showFigures();
+            String showFigures = shapeCollector.showFigures();
             //Then
             Assertions.assertEquals(listOfFigures, showFigures);
 
         }
+
     }
 }

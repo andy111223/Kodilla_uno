@@ -12,21 +12,26 @@ public class ShapeCollector {
     }
 
     public void addFigure(Shape shape) {
-        //do nothing
+        shapeCollection.add(shape);
     }
 
     public boolean removeFigure(Shape shape) {
-        //return true temporarily
+        shapeCollection.remove(shape);
         return true;
     }
 
-    public ShapeCollector getFigure(int n) {
-        //returning null means that the operation was successfull
-        return null;
+    public Shape getFigure(int n) {
+        if (n>=0 && n< shapeCollection.size()) {
+            shapeCollection.get(n);
+        } else {
+            return null;
+        }
+        return shapeCollection.get(n);
     }
 
-    public List<Shape> showFigures() {
-        //
-        return shapeCollection;
+    public String showFigures() {
+        System.out.println();
+        return shapeCollection.toString();
     }
+
 }
