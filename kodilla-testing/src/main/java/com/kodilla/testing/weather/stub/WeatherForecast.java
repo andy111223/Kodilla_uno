@@ -37,11 +37,11 @@ public class WeatherForecast {
     public double calculateMedian() {
 
         double median = 0.0;
-
+        List<Double> valuesList = new ArrayList<>();
         for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
 
-            List<Double> values = temperature.getValue();
-            Double[] doubleArray = values.toArray(new Double[0]);
+            valuesList.add(temperature.getValue());
+            Double[] doubleArray = valuesList.toArray(new Double[0]);
             Arrays.sort(doubleArray);
             if (doubleArray.length % 2 == 0) {
                 median = ((double) doubleArray[doubleArray.length/2] + (double)doubleArray[doubleArray.length/2-1])/2;
