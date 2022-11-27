@@ -26,7 +26,7 @@ public class StreamMain {
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
 
-        poemBeautifier.beautify("ABC", (textToDecorate -> "CCC"));
+        poemBeautifier.beautify("ABC", (textToDecorate -> textToDecorate + "CCC"));
 
     }
 }
