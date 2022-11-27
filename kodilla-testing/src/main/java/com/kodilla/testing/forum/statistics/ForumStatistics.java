@@ -38,10 +38,33 @@ public class ForumStatistics {
         usersQty = statistics.userNames().size();
         postsQty = statistics.postsCount();
         commentsQty = statistics.commentsCount();
-        postsAvgPerUser = (double) postsQty/usersQty;
-        commentsAvgPerUser = (double) commentsQty/usersQty;
-        commentsAvgPerPost = (double) commentsQty/postsQty;
+        postsAvgPerUser = postsAvgPerUser();
+        commentsAvgPerUser = commentsAvgPerUser();
+        commentsAvgPerPost = commentsAvgPerPost();
     }
+
+    public double postsAvgPerUser() {
+        if (usersQty > 0) {
+           return (double) postsQty/usersQty;
+        } else {
+            return 0;
+        }
+    }
+
+    public double commentsAvgPerUser() {
+        if (usersQty > 0) {
+            return (double) commentsQty/usersQty;
+        } else {
+            return 0;
+        }
+    }
+     public double commentsAvgPerPost() {
+        if (postsQty > 0) {
+            return (double) commentsQty/postsQty;
+        } else {
+            return 0;
+        }
+     }
 
     public void showStatistics() {
         System.out.println("Users quantity: " + usersQty);
