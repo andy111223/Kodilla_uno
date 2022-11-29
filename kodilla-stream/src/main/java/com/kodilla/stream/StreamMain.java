@@ -82,12 +82,6 @@ public class StreamMain {
 //
 //        System.out.println(theResultMapOfBooks);
 
-//        Forum theForum = new Forum();
-//        theForum.getUserList().stream()
-//                .filter(forumUser -> forumUser.getSex() == 'M')
-//                .filter(forumUser -> Period.between(forumUser.getDateOfBirth(), LocalDate.now()).getYears() >= 20)
-//                .filter(forumUser -> forumUser.getNumberOfPosts() > 0)
-//                .forEach(System.out::println);
 
         Forum theForum = new Forum();
         Map<Integer, ForumUser> theMapOfForumUsers = theForum.getUserList().stream()
