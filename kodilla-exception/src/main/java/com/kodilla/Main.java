@@ -13,13 +13,14 @@ public class Main {
 
 
          FindFlight findFlight = new FindFlight();
-         Flight flight = new Flight("Atlanta", "Denver");
+         Flight flight = new Flight("Bern", "Denver");
 
          try {
              findFlight.findFlight(flight);
+             System.out.println("Success - flights are found.");
          } catch (RouteNotFoundException e) {
              System.out.println("No such airport");
          }
-         System.out.println("The end of search");
+         System.out.println("---The end of search---");
      }
 }

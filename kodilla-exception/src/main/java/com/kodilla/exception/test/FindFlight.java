@@ -7,32 +7,30 @@ public class FindFlight {
 
     private final Map<String, Boolean> airportMap;
 
-    public FindFlight(Map<String, Boolean> airportMap) {
-        this.airportMap = airportMap;
+    public FindFlight() {
+        airportMap = airportDataBase();
     }
 
-    public boolean findFlight (Flight flight) throws RouteNotFoundException {
-
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
         return findAirport(flight.getArrivalAirport()) && findAirport(flight.getDepartureAirport());
     }
 
-    private boolean findAirport(String airportName) throws RouteNotFoundException {
-
+    private boolean findAirport(String airportName) throws RouteNotFoundException{
         if (airportMap.containsKey(airportName)) {
             return airportMap.get(airportName);
-        } else {
-            throw new RouteNotFoundException("Airport not found.");
-        }
+        }else{
+            throw new RouteNotFoundException("Airport does not exist!");
+        }//poprawic, zeby dwa razy nie odpytywac.
     }
 
-    private Map<String, Boolean> airports() {
+    private Map<String, Boolean> airportDataBase() {
+        Map<String, Boolean> airportDataBase = new HashMap<>();
+        airportDataBase.put("Bern", true);
+        airportDataBase.put("Los Angeles", true);
+        airportDataBase.put("Denver", false);
+        airportDataBase.put("Brasila", false);
+        airportDataBase.put("Canberra", true);
 
-        Map<String, Boolean> airports = new HashMap<>();
-        airports.put("Atlanta", true);
-        airports.put("Boston", true);
-        airports.put("Chicago", false);
-        airports.put("Denver", false);
-
-        return airports;
+        return airportDataBase;
     }
 }
