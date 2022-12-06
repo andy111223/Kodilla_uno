@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
-     public static void main(String[] args) {
+     public static void main(String[] args) throws RouteNotFoundException {
 
-         Flight flight = new Flight("Atlanta", "Boston");
+
          FindFlight findFlight = new FindFlight();
-
+         Flight flight = new Flight("Atlanta", "Denver");
 
          try {
              findFlight.findFlight(flight);
