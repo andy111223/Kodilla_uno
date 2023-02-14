@@ -5,9 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MovieStore {
+public final class MovieStore {
 
-    public Map<String, List<String>> getMovies() {
+    public final Map<String, List<String>> getMovies() {
+
         List<String> ironManTranslations = new ArrayList<>();
         ironManTranslations.add("Żelazny Człowiek");
         ironManTranslations.add("Iron Man");
@@ -25,6 +26,7 @@ public class MovieStore {
         booksTitlesWithTranslations.put("AV", avengersTranslations);
         booksTitlesWithTranslations.put("FL", flashTranslations);
 
-        return booksTitlesWithTranslations;
+        return new HashMap<>(booksTitlesWithTranslations);
     }
+
 }
