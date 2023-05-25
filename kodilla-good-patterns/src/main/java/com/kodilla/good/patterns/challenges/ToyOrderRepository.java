@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenges;
 
-public class ToyOrderRepository implements ProductRepository{
+public class ToyOrderRepository implements ProductRepository {
 
 
     @Override
