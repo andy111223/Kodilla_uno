@@ -2,20 +2,20 @@ package com.kodilla.spring.portfolio;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@SpringBootTest
+
 class BoardTestSuite {
     @Test
     void testTaskAdd() {
+
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
-        //When
 
+        //When
         board.getGetDoneList().addTask("Finished task");
         board.getToDoList().addTask("To be done");
         board.getInProgressList().addTask("Task in progress");
