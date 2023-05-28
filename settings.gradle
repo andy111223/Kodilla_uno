@@ -5,4 +5,6 @@ include 'kodilla-exception'
 include 'kodilla-good-patterns'
 include 'solid-dry'
 include 'stream-3'
+include 'kodilla-spring-intro'
+
 

@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest (classes = ForumUser.class)
+@SpringBootTest(classes = ForumUser.class)
 class ForumUserTestSuite {
 
     @Test
