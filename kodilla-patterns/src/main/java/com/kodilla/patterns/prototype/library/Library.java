@@ -20,6 +20,14 @@ public final class Library extends Prototype<Library> {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "Library{" +
+                "name='" + name + '\'' +
+                ", books=" + books +
+                '}';
+    }
+
     public Set<Book> getBooks() {
         return books;
     }
