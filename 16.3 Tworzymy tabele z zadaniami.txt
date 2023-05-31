@@ -1,0 +1,114 @@
+mysql> CREATE TABLE ISSUESLISTS
+    -> (
+    -> ID SERIAL PRIMARY KEY,
+    -> NAME VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> CREATE TABLE ISSUES
+    -> (
+    -> ID SERIAL PRIMARY KEY,
+    -> ISSUESLIST_ID BIGINT UNSIGNED NOT NULL,
+    -> SUMMARY VARCHAR(1024),
+    -> DESCRIPTION VARCHAR(5120),
+    -> USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+    -> FOREIGN KEY (ISSUESLIST_ID) REFERENCES ISSUESLISTS(ID),
+    -> FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID)
+    -> );
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> SHOW TABLES;
++--------------------------+
+| Tables_in_KODILLA_COURSE |
++--------------------------+
+| ISSUES                   |
+| ISSUESLISTS              |
+| POSTS                    |
+| USERS                    |
++--------------------------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO ISSUESLISTS (NAME)
+    -> VALUES ("ToDo");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO ISSUESLISTS (NAME)
+    -> VALUES ("In progress");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO ISSUESLISTS (NAME)
+    -> VALUES ("Done");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (1, "Shopping", "Milk, cheese, bread", 2);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (1, "Big shopping", "Tires, houses, horses", 3);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> values (1, "small shopping", "needles, beans and many other small things", 2);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (1, "Cleaning", "Body cleaning (e.g. shower)", 1);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (1, "House-keeping", "Vacuuming, making the house clean, collect cigarette stubs", 1);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (2, "SWIMMING", "Must train for an Ironman competition", 4);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (2, "Jogging", "Just to chill out", 4);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (2, "Nothing", "do nothing is also a heavy duty", 1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (2, "smoking", "cigars, cigarettes, bonefires", 3);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (2, "visit friends", "Buy gifts, bring wine", 1);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (3, "Flower plants", "Do it every week at 20:45", 3);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (3, "Eat food", "Eating healthy is a must!", 4);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (2, "drink green coctails", "Prepare a good recipe", 4);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (3, "Eat beef", "Make a good beef burger", 1);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (3, "Ride a horse", "Take lessons from John", 2);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+    -> VALUES (3, "Take a rest", "Must have a good sleep, not eat much before sleeping", 4);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+
