@@ -1,0 +1,139 @@
+mysql> SELECT * FROM ISSUES;
++----+---------------+----------------------+------------------------------------------------------------+--------------------+
+| ID | ISSUESLIST_ID | SUMMARY              | DESCRIPTION                                                | USER_ID_ASSIGNEDTO |
++----+---------------+----------------------+------------------------------------------------------------+--------------------+
+|  1 |             1 | Shopping             | Milk, cheese, bread                                        |                  2 |
+|  2 |             1 | Big shopping         | Tires, houses, horses                                      |                  3 |
+|  3 |             1 | small shopping       | needles, beans and many other small things                 |                  2 |
+|  4 |             1 | Cleaning             | Body cleaning (e.g. shower)                                |                  1 |
+|  5 |             1 | House-keeping        | Vacuuming, making the house clean, collect cigarette stubs |                  1 |
+|  6 |             2 | SWIMMING             | Must train for an Ironman competition                      |                  4 |
+|  7 |             2 | Jogging              | Just to chill out                                          |                  4 |
+|  8 |             2 | Nothing              | do nothing is also a heavy duty                            |                  1 |
+|  9 |             2 | smoking              | cigars, cigarettes, bonefires                              |                  3 |
+| 10 |             2 | visit friends        | Buy gifts, bring wine                                      |                  1 |
+| 11 |             3 | Flower plants        | Do it every week at 20:45                                  |                  3 |
+| 12 |             3 | Eat food             | Eating healthy is a must!                                  |                  4 |
+| 13 |             2 | drink green coctails | Prepare a good recipe                                      |                  4 |
+| 14 |             3 | Eat beef             | Make a good beef burger                                    |                  1 |
+| 15 |             3 | Ride a horse         | Take lessons from John                                     |                  2 |
+| 16 |             3 | Take a rest          | Must have a good sleep, not eat much before sleeping       |                  4 |
++----+---------------+----------------------+------------------------------------------------------------+--------------------+
+16 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM ISSUESLISTS;
++----+-------------+
+| ID | NAME        |
++----+-------------+
+|  1 | ToDo        |
+|  2 | In progress |
+|  3 | Done        |
++----+-------------+
+3 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM USERS;
++----+-----------+-------------+
+| ID | FIRSTNAME | LASTNAME    |
++----+-----------+-------------+
+|  1 | John      | Smith       |
+|  2 | Zachary   | Lee         |
+|  3 | Stephanie | Kodillalski |
+|  4 | Thomas    | Landgren    |
+|  5 | john      | Thompson    |
++----+-----------+-------------+
+5 rows in set (0.00 sec)
+
+
+mysql> SELECT I.SUMMARY, I.DESCRIPTION, L.NAME
+    -> FROM ISSUES I
+    -> JOIN ISSUESLISTS L ON I.ISSUESLIST_ID = L.ID;
++----------------------+------------------------------------------------------------+-------------+
+| SUMMARY              | DESCRIPTION                                                | NAME        |
++----------------------+------------------------------------------------------------+-------------+
+| Shopping             | Milk, cheese, bread                                        | ToDo        |
+| Big shopping         | Tires, houses, horses                                      | ToDo        |
+| small shopping       | needles, beans and many other small things                 | ToDo        |
+| Cleaning             | Body cleaning (e.g. shower)                                | ToDo        |
+| House-keeping        | Vacuuming, making the house clean, collect cigarette stubs | ToDo        |
+| SWIMMING             | Must train for an Ironman competition                      | In progress |
+| Jogging              | Just to chill out                                          | In progress |
+| Nothing              | do nothing is also a heavy duty                            | In progress |
+| smoking              | cigars, cigarettes, bonefires                              | In progress |
+| visit friends        | Buy gifts, bring wine                                      | In progress |
+| drink green coctails | Prepare a good recipe                                      | In progress |
+| Flower plants        | Do it every week at 20:45                                  | Done        |
+| Eat food             | Eating healthy is a must!                                  | Done        |
+| Eat beef             | Make a good beef burger                                    | Done        |
+| Ride a horse         | Take lessons from John                                     | Done        |
+| Take a rest          | Must have a good sleep, not eat much before sleeping       | Done        |
++----------------------+------------------------------------------------------------+-------------+
+16 rows in set (0.00 sec)
+
+
+mysql> SELECT L.NAME, I.SUMMARY, I.DESCRIPTION
+    -> FROM ISSUESLISTS L
+    -> JOIN ISSUES I ON L.ID = I.ISSUESLIST_ID;
++-------------+----------------------+------------------------------------------------------------+
+| NAME        | SUMMARY              | DESCRIPTION                                                |
++-------------+----------------------+------------------------------------------------------------+
+| ToDo        | Shopping             | Milk, cheese, bread                                        |
+| ToDo        | Big shopping         | Tires, houses, horses                                      |
+| ToDo        | small shopping       | needles, beans and many other small things                 |
+| ToDo        | Cleaning             | Body cleaning (e.g. shower)                                |
+| ToDo        | House-keeping        | Vacuuming, making the house clean, collect cigarette stubs |
+| In progress | SWIMMING             | Must train for an Ironman competition                      |
+| In progress | Jogging              | Just to chill out                                          |
+| In progress | Nothing              | do nothing is also a heavy duty                            |
+| In progress | smoking              | cigars, cigarettes, bonefires                              |
+| In progress | visit friends        | Buy gifts, bring wine                                      |
+| In progress | drink green coctails | Prepare a good recipe                                      |
+| Done        | Flower plants        | Do it every week at 20:45                                  |
+| Done        | Eat food             | Eating healthy is a must!                                  |
+| Done        | Eat beef             | Make a good beef burger                                    |
+| Done        | Ride a horse         | Take lessons from John                                     |
+| Done        | Take a rest          | Must have a good sleep, not eat much before sleeping       |
++-------------+----------------------+------------------------------------------------------------+
+16 rows in set (0.00 sec)
+
+
+mysql> SELECT I.SUMMARY, I.DESCRIPTION, U.FIRSTNAME, U.LASTNAME
+    -> FROM ISSUES I
+    -> JOIN USERS U ON I.USER_ID_ASSIGNEDTO = U.ID;
++----------------------+------------------------------------------------------------+-----------+-------------+
+| SUMMARY              | DESCRIPTION                                                | FIRSTNAME | LASTNAME    |
++----------------------+------------------------------------------------------------+-----------+-------------+
+| Cleaning             | Body cleaning (e.g. shower)                                | John      | Smith       |
+| House-keeping        | Vacuuming, making the house clean, collect cigarette stubs | John      | Smith       |
+| Nothing              | do nothing is also a heavy duty                            | John      | Smith       |
+| visit friends        | Buy gifts, bring wine                                      | John      | Smith       |
+| Eat beef             | Make a good beef burger                                    | John      | Smith       |
+| Shopping             | Milk, cheese, bread                                        | Zachary   | Lee         |
+| small shopping       | needles, beans and many other small things                 | Zachary   | Lee         |
+| Ride a horse         | Take lessons from John                                     | Zachary   | Lee         |
+| Big shopping         | Tires, houses, horses                                      | Stephanie | Kodillalski |
+| smoking              | cigars, cigarettes, bonefires                              | Stephanie | Kodillalski |
+| Flower plants        | Do it every week at 20:45                                  | Stephanie | Kodillalski |
+| SWIMMING             | Must train for an Ironman competition                      | Thomas    | Landgren    |
+| Jogging              | Just to chill out                                          | Thomas    | Landgren    |
+| Eat food             | Eating healthy is a must!                                  | Thomas    | Landgren    |
+| drink green coctails | Prepare a good recipe                                      | Thomas    | Landgren    |
+| Take a rest          | Must have a good sleep, not eat much before sleeping       | Thomas    | Landgren    |
++----------------------+------------------------------------------------------------+-----------+-------------+
+16 rows in set (0.00 sec)
+
+
+mysql> SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS ISSUES_TOTAL
+    -> FROM USERS U
+    -> JOIN ISSUES I ON U.ID = I.USER_ID_ASSIGNEDTO
+    -> GROUP BY I.USER_ID_ASSIGNEDTO;
++-----------+-------------+--------------+
+| FIRSTNAME | LASTNAME    | ISSUES_TOTAL |
++-----------+-------------+--------------+
+| John      | Smith       |            5 |
+| Zachary   | Lee         |            3 |
+| Stephanie | Kodillalski |            3 |
+| Thomas    | Landgren    |            5 |
++-----------+-------------+--------------+
+4 rows in set (0.00 sec)
