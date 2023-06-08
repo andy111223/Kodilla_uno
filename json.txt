@@ -1,0 +1,24 @@
+{
+  "nazwa_samochodu": "Model C",
+  "marka_samochodu": "Izera",
+  "fotele": [
+    {
+      "materiał": "skóra",
+      "kolor": "czarny"
+    },
+    {
+      "materiał": "skóra",
+      "kolor": "czarny"
+    },
+    {
+      "materiał": "skóra",
+      "kolor": "czarny"
+    },
+    {
+      "materiał": "skóra",
+      "kolor": "czarny"
+    }
+  ],
+  "pojemność_silnika": "272 HP"
+}
+
