@@ -51,10 +51,10 @@ public class InvoiceDaoTestSuite {
         Assertions.assertNotEquals(0,id);
 
         //CleanUp
-//        try {
-//            invoiceDao.deleteById(id);
-//        } catch (Exception e) {
-//            //do nothing
-//        }
+        try {
+            invoiceDao.deleteById(id);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
 }

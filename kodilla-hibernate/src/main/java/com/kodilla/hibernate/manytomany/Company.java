@@ -6,6 +6,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retrieveCompanyBySubstring",
+        query = "SELECT * FROM companies WHERE SUBSTRING(company_name, 1, 3) = :SUBSTRING",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

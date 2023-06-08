@@ -64,5 +64,4 @@ public class TaskDaoTestSuite {
         //Cleanup
         taskDao.deleteById(id);
     }
-
 }
