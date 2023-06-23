@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "TASKLISTS")
-public final class TaskList {
+public class TaskList {
 
 
     private int id;

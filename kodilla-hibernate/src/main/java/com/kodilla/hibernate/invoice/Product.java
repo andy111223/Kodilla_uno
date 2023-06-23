@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 
 @Entity
 @Table(name = "PRODUCT")
-public final class Product {
+public class Product {
 
     private int id;
     private String name;

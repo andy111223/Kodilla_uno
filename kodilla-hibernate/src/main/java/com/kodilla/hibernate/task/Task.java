@@ -27,7 +27,7 @@ import java.util.Date;
 )
 @Entity
 @Table(name = "TASKS")
-public final class Task {
+public class Task {
 
     private int id;
     private String description;

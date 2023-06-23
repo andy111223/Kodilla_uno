@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "INVOICE")
-public final class Invoice {
+public class Invoice {
 
     private int id;
     private String number;

@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "ITEM")
-public final class Item {
+public class Item {
 
     private int id;
     private List<Product> products = new ArrayList<>();
