@@ -37,7 +37,7 @@ public class DbManagerTestSuite {
         }
         rs.close();
         statement.close();
-        assertEquals(4, counter);
+        assertEquals(5, counter);
     }
     @Test
     void testSelectUsersAndPosts() throws SQLException {

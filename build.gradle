@@ -1,17 +1,23 @@
+
 plugins {
     id 'java'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
 }
 
-group = 'com.codilla'
+group = 'com.kodilla'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-
+    implementation 'org.springframework.boot:spring-boot-starter:3.1.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.1.0'
+    implementation 'org.springframework.boot:spring-boot-starter-aop:3.1.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.0'
 }
 
 tasks.named('test') {

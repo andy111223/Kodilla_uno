@@ -1,4 +1,11 @@
+pluginManagement {
+    plugins {
+        id 'org.springframework.boot' version '3.1.0'
+        id 'io.spring.dependency-management' version '1.1.0'
+    }
+}
 rootProject.name = 'kodilla-course'
+
 include 'kodilla-testing'
 include 'kodilla-stream'
 include 'kodilla-exception'
@@ -10,4 +17,4 @@ include 'kodilla-spring-web'
 include 'kodilla-patterns'
 include 'kodilla-jdbc'
 include 'kodilla-hibernate'
-
+include 'kodilla-patterns2'

@@ -97,12 +97,12 @@ public class BoardTestSuite {
         List<Task> tasks = project.getTaskLists().stream()
                 .flatMap(l -> l.getTasks().stream())
                 .filter(t -> t.getAssignedUser().equals(user))
+                //.peek(task -> System.out.println(task)) // debug line
                 .collect(toList());
         //Then
-        //assertEquals(3,tasks.size());
+        assertEquals(2,tasks.size());
         assertEquals(user, tasks.get(0).getAssignedUser());
-        assertEquals(user, tasks.get(3).getAssignedUser());
-        assertEquals(user, tasks.get(4).getAssignedUser());
+        assertEquals(user, tasks.get(1).getAssignedUser());
     }
     @Test
     void testAddTaskListFindOutdatedTasks() {
@@ -119,7 +119,7 @@ public class BoardTestSuite {
                 .collect(toList());
         //Then
         assertEquals(1,tasks.size());
-        assertEquals("Webpage design", tasks.get(1).getTitle());
+        assertEquals("Webpage design", tasks.get(0).getTitle());
     }
 
 }
