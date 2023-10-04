@@ -1,5 +1,7 @@
 package com.kodilla.patterns2.facade;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.kodilla.patterns2.facade.api.ItemDto;
 import com.kodilla.patterns2.facade.api.OrderDto;
 import com.kodilla.patterns2.facade.api.OrderFacade;
@@ -12,6 +14,9 @@ import java.math.BigDecimal;
 
 @SpringBootTest
 class ShopServiceTestSuite {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
+
 
     @Autowired
     private ShopService shopService;
@@ -73,5 +78,23 @@ class ShopServiceTestSuite {
         } catch (OrderProcessingException e) {
             // business exception - should be handled in real application
         }
+    }
+    @Test
+    void testProcessOrder() {
+        //Given
+        OrderDto order = new OrderDto();
+        order.addItem(new ItemDto(10L, 2));
+        order.addItem(new ItemDto(216L, 1));
+        order.addItem(new ItemDto(25L, 1));
+        order.addItem(new ItemDto(11L, 3));
+        //When
+        try {
+            orderFacade.processOrder(order, 1L);
+        } catch (OrderProcessingException e) {
+            //business exception handling
+        }
+        //Then
+        LOGGER.info("Testing processOrder method");
+        System.out.println();
     }
 }
