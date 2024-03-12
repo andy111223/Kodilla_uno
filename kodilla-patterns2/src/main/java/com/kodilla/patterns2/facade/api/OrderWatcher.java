@@ -14,6 +14,6 @@ public class OrderWatcher {
 
     @Before("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))")
     public void logEvent() {
-        LOGGER.info("Logging the use of processOrder method");
+        LOGGER.info("------>   Logging the use of processOrder method");
     }
 }

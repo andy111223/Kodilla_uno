@@ -18,7 +18,7 @@ public class Watcher {
     @Before("execution(* com.kodilla.patterns2.aop.calculator.Calculator.factorial(..))" +
             "&& args(theNumber) && target(object)")
     public void logEvent(BigDecimal theNumber, Object object) {
-        LOGGER.info("Class: " + object.getClass().getName() + ", Args: " + theNumber);
+        LOGGER.info("------>   Class: " + object.getClass().getName() + ", ------>   Args: " + theNumber);
     }
     @Around("execution(* com.kodilla.patterns2.aop.calculator.Calculator.factorial(..))")
     public Object measureTime(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
@@ -27,7 +27,7 @@ public class Watcher {
             long begin = System.currentTimeMillis();
             result = proceedingJoinPoint.proceed();
             long end = System.currentTimeMillis();
-            LOGGER.info("Time consumed: " + (end - begin) + " [ms]");
+            LOGGER.info("------>   Time consumed: " + (end - begin) + " [ms]");
         } catch (Throwable throwable) {
             LOGGER.error(throwable.getMessage());
             throw throwable;

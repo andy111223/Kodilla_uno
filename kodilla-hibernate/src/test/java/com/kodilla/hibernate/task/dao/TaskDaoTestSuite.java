@@ -4,9 +4,11 @@ import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
 import com.kodilla.hibernate.tasklist.TaskList;
 import com.kodilla.hibernate.tasklist.dao.TaskListDao;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,6 +20,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TaskDaoTestSuite {
     private static final String DESCRIPTION = "Test: Learn Hibernate";
 
+//    @AfterEach
+//    void cleanUp() {
+//        taskDao.deleteAll();
+//    }
     @Autowired
     private TaskDao taskDao;
 
@@ -38,6 +44,7 @@ public class TaskDaoTestSuite {
         taskDao.deleteById(id);
     }
     @Test
+    @Transactional //ensures the transaction roll-back in the db
     void testTaskDaoFindByDuration() {
         //Given
         Task task = new Task(DESCRIPTION,7);
