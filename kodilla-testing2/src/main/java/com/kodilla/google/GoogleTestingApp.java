@@ -9,8 +9,10 @@ public class GoogleTestingApp {
 
     public static final String SEARCHFIELD = "q";
     public static void main(String[] args) {
-        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.BRAVE);
+        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get("https://www.google.com");
+
+        System.out.println("Title: " + driver.getTitle());
 
         driver.findElement(By.xpath("//*[@id=\"L2AGLb\"]/div")).click();
 

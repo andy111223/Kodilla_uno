@@ -10,7 +10,7 @@ public class WebDriverConfig {
     public static final String BRAVE = "BRAVE_DRIVER";
     public static WebDriver getDriver(final String driverType) {
 
-        System.setProperty("webdriver.chrome.driver", "/home/andrzej/Development/Projects/kodilla-course/Kodilla_uno/chromedriver-linux64/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/home/andrzej/Development/Projects/kodilla-course/Kodilla_uno/chromedriver");
 
         if (driverType.equals(CHROME)) {
             return new ChromeDriver();
