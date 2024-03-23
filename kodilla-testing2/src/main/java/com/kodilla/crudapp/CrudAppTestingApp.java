@@ -21,6 +21,7 @@ public class CrudAppTestingApp {
     public static void main(String[] args) {
 
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
+        driver.get("https://andy111223.github.io/");
 
         WebElement searchField =  driver.findElement(By.xpath(XPATH_INPUT));
         searchField.sendKeys("New robotic task");
@@ -29,8 +30,6 @@ public class CrudAppTestingApp {
         textareaField.sendKeys("New robotic task");
 
         while (!driver.findElement(By.xpath(XPATH_WAIT_FOR)).isDisplayed());
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(XPATH_SELECT)));
 
         WebElement selectCombo = driver.findElement(By.xpath(XPATH_SELECT));
         Select selectBoard = new Select(selectCombo);
